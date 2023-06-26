@@ -41,6 +41,7 @@ def move():
     game.get_game_state(request.json, 3)
     logger.info(game.self)
     logger.info(game.prox)
+    print("Myself: ", game.self)
 
 """
     # Infomation of myself
