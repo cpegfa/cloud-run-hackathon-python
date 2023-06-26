@@ -16,6 +16,7 @@
 import os
 import logging
 import random
+import game
 from flask import Flask, request
 
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
@@ -31,9 +32,17 @@ def index():
 @app.route("/", methods=['POST'])
 def move():
     request.get_data()
-    logger.info(request.json)
+    // logger.info(request.json)
     
     # TODO add your implementation here to replace the random response
+
+    game.get_game_state(request.json)
+
+    logger.info("I am at (", game.self['x'],",",game.self['y'],") facing ", game.self['direction'])
+
+
+
+
     
     return moves[random.randrange(len(moves))]
 
