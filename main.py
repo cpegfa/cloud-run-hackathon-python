@@ -32,13 +32,16 @@ def index():
 @app.route("/", methods=['POST'])
 def move():
     request.get_data()
-    // logger.info(request.json)
+
+    data=request.json
+    logger.info("Myself")
+    //logger.info(request.json)
     
     # TODO add your implementation here to replace the random response
 
-    game.get_game_state(request.json)
+    //game.get_game_state(request.json)
 
-    logger.info("I am at (", game.self['x'],",",game.self['y'],") facing ", game.self['direction'])
+    //logger.info("(", game.self['x'],",",game.self['y'],") facing ", game.self['direction'])
 
 
 
