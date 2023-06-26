@@ -33,13 +33,14 @@ def markAt(board, p):
 """
 Read Json and Prepare variables
 """
-def get_game_state(infos)
+def get_game_state(infos):
     global self
     myurl = infos['_links']['self']['href']
     players = infos['arena']['state']
     for key, info in players.items():
         if key == myurl:
-            self=['x':info['x'],'y':info['y'],'direction':info['direction'],'wasHit':info['wasHit'],'score':info['score']]
+            self={'x':info['x'],'y':info['y'],'direction':info['direction'],'wasHit':info['wasHit'],'score':info['score']}
+
     
 def readJson():
     with open('arena.json','r') as f:
