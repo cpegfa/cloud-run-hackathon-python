@@ -36,6 +36,7 @@ def move():
     data=request.json
     logger.info("Myself - logger")
     logging.info("Myself - logging")
+    print("Myself - print")
     #logger.info(request.json)
     
     # TODO add your implementation here to replace the random response
