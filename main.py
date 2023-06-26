@@ -44,7 +44,7 @@ def move():
     #logger.info("(", game.self['x'],",",game.self['y'],") facing ", game.self['direction'])
 
 """
-    userlist=[['x'(int),'y'(int),'direction'(char),'wasHit'(bool),'score']
+    userlist=[['x'(int),'y'(int),'direction'(char),'wasHit'(bool),'score'(int)]
               ,['x','y','direction','wasHit','score']
               ,['x','y','direction','wasHit','score']
               ,['x','y','direction','wasHit','score']
