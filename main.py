@@ -19,7 +19,8 @@ import random
 import game
 from flask import Flask, request
 
-logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
+#logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
+logging.basicConfig(filename='/home/student_04_7bd94585d189/cloudshell_open/cloudbowl-microservice-game/file.log', filemode='w', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
@@ -35,7 +36,6 @@ def move():
 
     data=request.json
     logger.info("Myself - logger")
-    logging.info("Myself - logging")
     print("Myself - print")
     #logger.info(request.json)
     
