@@ -35,13 +35,13 @@ def move():
 
     data=request.json
     logger.info("Myself")
-    //logger.info(request.json)
+    #logger.info(request.json)
     
     # TODO add your implementation here to replace the random response
 
-    //game.get_game_state(request.json)
+    #game.get_game_state(request.json)
 
-    //logger.info("(", game.self['x'],",",game.self['y'],") facing ", game.self['direction'])
+    #logger.info("(", game.self['x'],",",game.self['y'],") facing ", game.self['direction'])
 
 """
     userlist=[['x'(int),'y'(int),'direction'(char),'wasHit'(bool),'score']
