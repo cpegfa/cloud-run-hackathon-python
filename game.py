@@ -36,6 +36,7 @@ Read Json and Prepare variables
 """
 def get_game_state(infos, size=3):
     global self
+    global prox
     myurl = infos['_links']['self']['href']
     players = infos['arena']['state']
     board_dims = infos['arena']['dims']
@@ -47,7 +48,7 @@ def get_game_state(infos, size=3):
 
     prox=np.empty((0,5))
     for key, info in players.items():
-        if abs(pos[0] - info['x']) <= size and  abs(pos[1] - info['y']) <= size :
+        if abs(pos[0] - info['x']) <= size and  abs(pos[1] - info['y']) <= size and key != myurl :
             prox = np.append(prox, [[info['x'],info['y'],info['direction'],info['wasHit'],info['score']]], axis=0)
 
 

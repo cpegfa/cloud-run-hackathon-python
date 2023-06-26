@@ -19,8 +19,8 @@ import random
 import game
 from flask import Flask, request
 
-logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
-#logging.basicConfig(filename='/home/student_04_7bd94585d189/cloudshell_open/cloudbowl-microservice-game/file.log', filemode='w', level=logging.DEBUG)
+#logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
+logging.basicConfig(filename='c:/Users/oleung/Documents/file.log', filemode='w', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
@@ -39,9 +39,8 @@ def move():
     # TODO add your implementation here to replace the random response
 
     game.get_game_state(request.json, 3)
-    logger.info(game.self)
-    logger.info(game.prox)
-    print("Myself: ", game.self)
+    logger.info("self:{}".format(game.self))
+    logger.info("prox:{}".format(game.prox))
 
     return moves[random.randrange(len(moves))]
 """
@@ -62,5 +61,5 @@ def move():
     
 
 if __name__ == "__main__":
-  app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
+  app.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
   
