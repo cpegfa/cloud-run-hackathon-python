@@ -43,6 +43,7 @@ def move():
     logger.info(game.prox)
     print("Myself: ", game.self)
 
+    return moves[random.randrange(len(moves))]
 """
     # Infomation of myself
     # game.self <--- dictionary with keys 'x','y','direction','wasHit','score'
@@ -59,7 +60,6 @@ def move():
 """
 
     
-    return moves[random.randrange(len(moves))]
 
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
