@@ -11,8 +11,9 @@ step_count = 1      # step number of the game
 history_depth = 0   # 0 - all history
 history=defaultdict(np.array)
 data = 0            # json data
-board_dim = None          # game board dimension in a tuple (row,column)
+board_dims = None          # game board dimension in a tuple (row,column)
 self = None                 # my position on the game board
+prox = None
 
 def markAt(board, p):
     match p['direction']:
@@ -33,13 +34,24 @@ def markAt(board, p):
 """
 Read Json and Prepare variables
 """
-def get_game_state(infos):
+def get_game_state(infos, size=3):
     global self
     myurl = infos['_links']['self']['href']
     players = infos['arena']['state']
+    board_dims = infos['arena']['dims']
     for key, info in players.items():
         if key == myurl:
             self={'x':info['x'],'y':info['y'],'direction':info['direction'],'wasHit':info['wasHit'],'score':info['score']}
+            pos=[info['x'],info['y']]
+            break
+
+    prox=np.empty((0,5))
+    for key, info in players.items():
+        if abs(pos[0] - info['x']) <= size and  abs(pos[1] - info['y']) <= size :
+            prox = np.append(prox, [[info['x'],info['y'],info['direction'],info['wasHit'],info['score']]], axis=0)
+
+
+    
 
     
 def readJson():
