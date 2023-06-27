@@ -33,6 +33,8 @@ def get_game_state(infos, size=3):
 
 
 def highChanceHit():
+    global prox
+    global self
     for i in range(len(prox)):
 
         if self['x'] == prox[i][0] and self['y'] < prox[i][1] and self['direction'] == 'N': return True
@@ -57,6 +59,8 @@ def highChanceHit():
     
 
 def mustMove():
+    global prox
+    global self
     if self['wasHit'] == True:
         if self['direction'] == 'N' and self['y'] > 0 : return True
         if self['direction'] == 'W' and self['x'] > 0 : return True
@@ -65,6 +69,8 @@ def mustMove():
     return False
      
 def cannotMove():
+    global prox
+    global self
     if self['direction'] == 'N' and self['y'] == 0 : return True
     if self['direction'] == 'W' and self['x'] == 0 : return True
     if self['direction'] == 'S' and self['y'] == board_dims[1]-1 : return True
