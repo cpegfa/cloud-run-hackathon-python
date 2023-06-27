@@ -23,8 +23,8 @@ logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
-#acts = ['F', 'R', 'L', 'T']
-#turns = ['R', 'L']
+acts = ['F', 'R', 'L', 'T']
+turns = ['R', 'L']
 moves = ['R', 'L','F','F','F']
 
 @app.route("/", methods=['GET'])
@@ -35,20 +35,20 @@ def index():
 def move():
     request.get_data()
 
-    logger.info(request.json)
+    #logger.info(request.json)
     
     # TODO add your implementation here to replace the random response
 
-    #game.get_game_state(request.json, 3)
+    game.get_game_state(request.json, 3)
     #logger.info("self:{}".format(game.self))
     #logger.info("prox:{}".format(game.prox))
     #logger.info("prox len:{}".format(len(game.prox)))
-    #for i in range(len(game.prox)):
-        #logger.info(game.prox[i])
+    for i in range(len(game.prox)):
+        logger.info(game.prox[i])
 
-    #if game.highChanceHit(): return 'T'
-    #if game.mustMove(): return 'F' 
-    #if game.cannotMove(): return turns[random.randrange(len(turns))]
+    if game.highChanceHit(): return 'T'
+    if game.mustMove(): return 'F' 
+    if game.cannotMove(): return turns[random.randrange(len(turns))]
 
     return moves[random.randrange(len(moves))]
     
