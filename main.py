@@ -24,7 +24,9 @@ logging.basicConfig(filename='c:/Users/oleung/Documents/file.log', filemode='w',
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
-moves = ['F', 'R', 'L', 'T']
+acts = ['F', 'R', 'L', 'T']
+turns = ['R', 'L']
+moves = ['R', 'L','F','F','F']
 
 @app.route("/", methods=['GET'])
 def index():
@@ -41,6 +43,13 @@ def move():
     game.get_game_state(request.json, 3)
     logger.info("self:{}".format(game.self))
     logger.info("prox:{}".format(game.prox))
+    logger.info("prox len:{}".format(len(game.prox)))
+    for i in range(len(game.prox)):
+        logger.info(game.prox[i])
+
+    if game.highChanceHit(): return 'T'
+    if game.mustMove(): return 'F' 
+    if game.cannotMove(): return turns[random.randrange(len(turns))]
 
     return moves[random.randrange(len(moves))]
 """
