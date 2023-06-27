@@ -16,6 +16,7 @@ Read Json and Prepare variables
 def get_game_state(infos, size=3):
     global self
     global prox
+    global board_dims
     myurl = infos['_links']['self']['href']
     players = infos['arena']['state']
     board_dims = infos['arena']['dims']
@@ -61,6 +62,7 @@ def highChanceHit():
 def mustMove():
     global prox
     global self
+    global board_dims
     if self['wasHit'] == True:
         if self['direction'] == 'N' and self['y'] > 0 : return True
         if self['direction'] == 'W' and self['x'] > 0 : return True
@@ -71,6 +73,7 @@ def mustMove():
 def cannotMove():
     global prox
     global self
+    global board_dims
     if self['direction'] == 'N' and self['y'] == 0 : return True
     if self['direction'] == 'W' and self['x'] == 0 : return True
     if self['direction'] == 'S' and self['y'] == board_dims[1]-1 : return True
