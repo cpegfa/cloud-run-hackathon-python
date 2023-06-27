@@ -16,7 +16,7 @@
 import os
 import logging
 import random
-#import game
+import game
 from flask import Flask, request
 
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
