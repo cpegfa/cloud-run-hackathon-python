@@ -35,10 +35,10 @@ def get_game_state(infos, size=3):
 def highChanceHit():
     for i in range(len(prox)):
 
-        if self['x'] == prox[i][0] and self['y'] > prox[i][1] and self['direction'] == 'N': return True
-        if self['y'] == prox[i][1] and self['x'] < prox[i][0] and self['direction'] == 'W': return True
-        if self['x'] == prox[i][0] and self['y'] < prox[i][1] and self['direction'] == 'S': return True
-        if self['y'] == prox[i][1] and self['x'] > prox[i][0] and self['direction'] == 'E': return True
+        if self['x'] == prox[i][0] and self['y'] < prox[i][1] and self['direction'] == 'N': return True
+        if self['y'] == prox[i][1] and self['x'] > prox[i][0] and self['direction'] == 'W': return True
+        if self['x'] == prox[i][0] and self['y'] > prox[i][1] and self['direction'] == 'S': return True
+        if self['y'] == prox[i][1] and self['x'] < prox[i][0] and self['direction'] == 'E': return True
 
         match self['direction']:
             case 'N':
