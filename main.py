@@ -41,9 +41,9 @@ def move():
     # TODO add your implementation here to replace the random response
 
     game.get_game_state(request.json, 3)
-    logger.info("self:{}".format(game.self))
-    logger.info("prox:{}".format(game.prox))
-    logger.info("prox len:{}".format(len(game.prox)))
+    #logger.info("self:{}".format(game.self))
+    #logger.info("prox:{}".format(game.prox))
+    #logger.info("prox len:{}".format(len(game.prox)))
     for i in range(len(game.prox)):
         logger.info(game.prox[i])
 
@@ -52,23 +52,8 @@ def move():
     if game.cannotMove(): return turns[random.randrange(len(turns))]
 
     return moves[random.randrange(len(moves))]
-"""
-    # Infomation of myself
-    # game.self <--- dictionary with keys 'x','y','direction','wasHit','score'
-
-
-    # List of player that are within the sqaure with size defined by 2nd parameter of get_game_state()
-    game.prox=[['x'(int),'y'(int),'direction'(char),'wasHit'(bool),'score'(int)]
-              ,['x','y','direction','wasHit','score']
-              ,['x','y','direction','wasHit','score']
-                ...
-              ,['x','y','direction','wasHit','score']
-              ,['x','y','direction','wasHit','score']]
-
-"""
-
     
 
 if __name__ == "__main__":
-  app.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
+  app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
   
