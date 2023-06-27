@@ -20,7 +20,6 @@ import random
 from flask import Flask, request
 
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
-#logging.basicConfig(filename='c:/Users/oleung/Documents/file.log', filemode='w', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
