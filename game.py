@@ -37,7 +37,8 @@ def highChanceHit():
     global prox
     global self
     for i in range(len(prox)):
-
+        print("s",self)
+        print("p:",prox[i][0],",",prox[i][1])
         if self['x'] == prox[i][0] and self['y'] < prox[i][1] and self['direction'] == 'N': return True
         if self['y'] == prox[i][1] and self['x'] > prox[i][0] and self['direction'] == 'W': return True
         if self['x'] == prox[i][0] and self['y'] > prox[i][1] and self['direction'] == 'S': return True
