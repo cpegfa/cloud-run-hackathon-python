@@ -14,15 +14,15 @@
 # limitations under the License.
 
 import os
-import logging
+import logging, sys
 import random
 import game
 from flask import Flask, request
 
-logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
+#logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-logger.addHandler(logging.StreamHandler(sys.stdout)
+logger.addHandler(logging.StreamHandler(sys.stdout))
 
 
 app = Flask(__name__)
