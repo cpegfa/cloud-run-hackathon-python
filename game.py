@@ -37,26 +37,25 @@ def highChanceHit():
     global prox
     global self
     for i in range(len(prox)):
-        print("s",self)
-        print("p:",prox[i][0],",",prox[i][1])
-        if self['x'] == prox[i][0] and self['y'] < prox[i][1] and self['direction'] == 'N': return True
-        if self['y'] == prox[i][1] and self['x'] > prox[i][0] and self['direction'] == 'W': return True
-        if self['x'] == prox[i][0] and self['y'] > prox[i][1] and self['direction'] == 'S': return True
-        if self['y'] == prox[i][1] and self['x'] < prox[i][0] and self['direction'] == 'E': return True
+
+        if int(self['x']) == prox[i][0] and int(self['y']) < prox[i][1] and self['direction'] == 'N': return True
+        if int(self['y']) == prox[i][1] and int(self['y']) > prox[i][0] and self['direction'] == 'W': return True
+        if int(self['y']) == prox[i][0] and int(self['y']) > prox[i][1] and self['direction'] == 'S': return True
+        if int(self['y']) == prox[i][1] and int(self['y']) < prox[i][0] and self['direction'] == 'E': return True
 
         match self['direction']:
             case 'N':
-                if self['x'] - 1 == prox[i][0] and self['y'] > prox[i][1] and prox[i][2] == 'E': return True
-                if self['x'] + 1 == prox[i][0] and self['y'] > prox[i][1] and prox[i][2] == 'W': return True
+                if int(self['y']) - 1 == prox[i][0] and int(self['y']) > prox[i][1] and prox[i][2] == 'E': return True
+                if int(self['y']) + 1 == prox[i][0] and int(self['y']) > prox[i][1] and prox[i][2] == 'W': return True
             case 'W':
-                if self['y'] - 1 == prox[i][1] and self['x'] > prox[i][0] and prox[i][2] == 'S': return True
-                if self['y'] + 1 == prox[i][1] and self['x'] > prox[i][0] and prox[i][2] == 'N': return True
+                if int(self['y']) - 1 == prox[i][1] and self['x'] > prox[i][0] and prox[i][2] == 'S': return True
+                if int(self['y']) + 1 == prox[i][1] and int(self['y']) > prox[i][0] and prox[i][2] == 'N': return True
             case 'S':
-                if self['x'] - 1 == prox[i][0] and self['y'] < prox[i][1] and prox[i][2] == 'E': return True
-                if self['x'] + 1 == prox[i][0] and self['y'] < prox[i][1] and prox[i][2] == 'W': return True
+                if int(self['y']) - 1 == prox[i][0] and int(self['y']) < prox[i][1] and prox[i][2] == 'E': return True
+                if int(self['y']) + 1 == prox[i][0] and int(self['y']) < prox[i][1] and prox[i][2] == 'W': return True
             case 'E':
-                if self['y'] - 1 == prox[i][1] and self['x'] < prox[i][0] and prox[i][2] == 'S': return True
-                if self['y'] + 1 == prox[i][1] and self['x'] < prox[i][0] and prox[i][2] == 'N': return True
+                if int(self['y']) - 1 == prox[i][1] and int(self['y']) < prox[i][0] and prox[i][2] == 'S': return True
+                if int(self['y']) + 1 == prox[i][1] and int(self['y']) < prox[i][0] and prox[i][2] == 'N': return True
     return False
     
 
