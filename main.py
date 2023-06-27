@@ -21,6 +21,9 @@ from flask import Flask, request
 
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+logger.addHandler(logging.StreamHandler(sys.stdout)
+
 
 app = Flask(__name__)
 acts = ['F', 'R', 'L', 'T']
@@ -40,8 +43,7 @@ def move():
     # TODO add your implementation here to replace the random response
 
     game.get_game_state(request.json, 3)
-    #print("self:", game.self)
-    #logger.info("self:{}".format(game.self))
+    logger.info("myself:{}".format(game.self))
     #logger.info("prox:{}".format(game.prox))
     #logger.info("prox len:{}".format(len(game.prox)))
     #for i in range(len(game.prox)):
