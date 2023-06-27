@@ -21,8 +21,11 @@ from flask import Flask, request
 
 #logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-logger.addHandler(logging.StreamHandler(sys.stdout))
+logger.setLevel(logging.DEBUG)
+streamHdlr = logging.StreamHandler(sys.stdout)
+streamHdlr.setLevel(logging.DEBUG)
+streamHdlr.setStream(sys.stdout)
+logger.addHandler(streamHdlr)
 
 
 app = Flask(__name__)
