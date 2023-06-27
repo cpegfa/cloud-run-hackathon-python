@@ -43,8 +43,8 @@ def move():
     #logger.info("self:{}".format(game.self))
     #logger.info("prox:{}".format(game.prox))
     #logger.info("prox len:{}".format(len(game.prox)))
-    for i in range(len(game.prox)):
-        logger.info(game.prox[i])
+    #for i in range(len(game.prox)):
+        #logger.info(game.prox[i])
 
     if game.highChanceHit(): return 'T'
     if game.mustMove(): return 'F' 
